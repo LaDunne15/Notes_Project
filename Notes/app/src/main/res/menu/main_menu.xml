@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="3"
+        android:title="Налаштування"/>
+    <item
+        android:id="@+id/action_edit_text"
+        android:orderInCategory="2"
+        android:title="Новий запис"/>
+    <item
+        android:id="@+id/action_terms_of_use"
+        android:orderInCategory="4"
+        android:title="Правила користування"/>
+    <item
+        android:id="@+id/action_main"
+        android:orderInCategory="1"
+        android:title="Головна" />
+    <item
+        android:id="@+id/action_about"
+        android:orderInCategory="5"
+        android:title="Про проект" />
+</menu>

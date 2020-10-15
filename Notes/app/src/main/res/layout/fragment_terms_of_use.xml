@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:shadowColor="@android:color/holo_green_dark"
+        android:shadowDx="4"
+        android:shadowDy="-4"
+        android:shadowRadius="1"
+        android:text="Умови користування"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=
+                "     1.Proin vel eros sit amet magna pretium malesuada vel in tortor.\n
+    2.Etiam ultrices magna nec nisl scelerisque, ac iaculis nisi ullamcorper.\n
+    3.Donec in leo ut enim mollis ultricies vitae eget tellus.\n
+    4.Pellentesque et neque lobortis, porta risus sit amet, ultrices neque.\n
+    5.Quisque gravida ex id imperdiet viverra.\n
+    6.Nam rhoncus purus ac metus euismod gravida.\n"
+            android:inputType="textMultiLine"
+            android:textAlignment="textStart"
+            android:textSize="24sp"/>
+</LinearLayout>

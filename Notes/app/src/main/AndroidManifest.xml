@@ -9,18 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OptionsActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
-        </activity>
-        <activity
-            android:name=".NotesActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".EditTextActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

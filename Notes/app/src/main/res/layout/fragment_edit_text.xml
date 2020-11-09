@@ -1,50 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:columnCount="3"
-    android:orientation="horizontal">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Зберегти"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        />
+<layout>
+    <data>
+        <variable
+            name="model"
+            type="com.example.notes.screens.EditText.EditTextViewModel" />
+    </data>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Закрити"
-        android:onClick="goBack"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Категорія"
-        android:layout_gravity="fill"
-        android:layout_columnWeight="1"
-        />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_columnSpan="3"
-        android:inputType="textPersonName"
-        android:hint="Заголовок" />
-
-    <EditText
-        android:id="@+id/editTextTextMultiLine"
         android:layout_height="match_parent"
-        android:layout_width="match_parent"
-        android:ems="10"
-        android:layout_columnSpan="3"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        android:hint="Великий текст"/>
+        android:columnCount="3"
+        android:orientation="horizontal">
 
-</GridLayout>
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Зберегти"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"/>
+
+        <Button
+            android:id="@+id/btn_close"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Закрити"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Категорія"
+            android:layout_gravity="fill"
+            android:layout_columnWeight="1"/>
+
+        <EditText
+            android:id="@+id/record_name"
+            android:layout_width="match_parent"
+            android:layout_columnSpan="3"
+            android:inputType="textPersonName"
+            android:text="@{model.text}"
+            android:hint="Заголовок" />
+
+        <EditText
+            android:id="@+id/record_text"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:ems="10"
+            android:layout_columnSpan="3"
+            android:gravity="start|top"
+            android:inputType="textMultiLine"
+            android:hint="Великий текст"/>
+
+    </GridLayout>
+</layout>

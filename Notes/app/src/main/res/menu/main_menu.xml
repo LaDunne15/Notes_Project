@@ -5,16 +5,16 @@
         android:orderInCategory="3"
         android:title="Налаштування"/>
     <item
-        android:id="@+id/action_edit_text"
-        android:orderInCategory="2"
-        android:title="Новий запис"/>
-    <item
         android:id="@+id/action_terms_of_use"
         android:orderInCategory="4"
         android:title="Правила користування"/>
     <item
-        android:id="@+id/action_main"
+        android:id="@+id/action_add_record"
         android:orderInCategory="1"
+        android:title="Новий запис" />
+    <item
+        android:id="@+id/action_main"
+        android:orderInCategory="2"
         android:title="Головна" />
     <item
         android:id="@+id/action_about"

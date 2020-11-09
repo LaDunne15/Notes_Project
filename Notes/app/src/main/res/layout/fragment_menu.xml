@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    tools:context=".MainActivity"
+    android:orientation="vertical">
 
-        <ImageView
-            android:id="@+id/imageView"
-            android:layout_width="match_parent"
-            android:layout_height="183dp"
-            app:srcCompat="@android:drawable/ic_menu_sort_by_size" />
 
         <TextView
             android:layout_width="match_parent"
@@ -30,10 +21,11 @@
             android:textStyle="bold" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btn_new_record"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Новий запис"/>
+            android:text="Новий запис"
+            tools:ignore="OnClick" />
 
         <Button
             android:id="@+id/button2"
@@ -41,18 +33,4 @@
             android:layout_height="wrap_content"
             android:text="Всі записи"/>
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Налаштування"/>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="v.1.0.0"
-            android:textAlignment="center" />
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

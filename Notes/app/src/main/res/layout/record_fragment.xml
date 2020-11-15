@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-<layout>
     <data>
         <variable
-            name="model"
-            type="com.example.notes.screens.EditText.EditTextViewModel" />
+            name="record_model"
+            type="com.example.notes.screens.record.RecordViewModel" />
     </data>
 
-    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <GridLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -15,16 +16,14 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btn_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Зберегти!"
-            android:onClick="@{() -> model.setText()}"
+            android:text="Зберегти"
+            android:onClick="@{() -> record_model.onStartRecording()}"
             android:layout_gravity="fill"
             android:layout_columnWeight="1"/>
 
         <Button
-            android:id="@+id/btn_close"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Закрити"
@@ -35,25 +34,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Категорія"
+            android:onClick="@{ () -> record_model.onClear()}"
             android:layout_gravity="fill"
-            android:layout_columnWeight="1"/>
+            android:layout_columnWeight="1"
+            android:enabled="@{record_model.visibility}"
+            />
 
         <EditText
-            android:id="@+id/record_name"
             android:layout_width="match_parent"
             android:layout_columnSpan="3"
+            android:text="@={record_model.text}"
             android:inputType="textPersonName"
-            android:text="@{model.text}"
             android:hint="Заголовок" />
 
         <EditText
-            android:id="@+id/record_text"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:ems="10"
             android:layout_columnSpan="3"
             android:gravity="start|top"
             android:inputType="textMultiLine"
+            android:text="@{record_model.recordsString}"
             android:hint="Великий текст"/>
 
     </GridLayout>

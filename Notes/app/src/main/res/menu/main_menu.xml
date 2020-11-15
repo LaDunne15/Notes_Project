@@ -2,11 +2,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="3"
+        android:orderInCategory="4"
         android:title="Налаштування"/>
     <item
         android:id="@+id/action_terms_of_use"
-        android:orderInCategory="4"
+        android:orderInCategory="5"
         android:title="Правила користування"/>
     <item
         android:id="@+id/action_add_record"
@@ -14,10 +14,18 @@
         android:title="Новий запис" />
     <item
         android:id="@+id/action_main"
-        android:orderInCategory="2"
+        android:orderInCategory="3"
         android:title="Головна" />
     <item
         android:id="@+id/action_about"
-        android:orderInCategory="5"
+        android:orderInCategory="6"
         android:title="Про проект" />
+    <item
+        android:id="@+id/action_all_record"
+        android:orderInCategory="2"
+        android:title="Всі записи" />
+    <item
+        android:id="@+id/action_somerecord"
+        android:orderInCategory="7"
+        android:title="Всі записи" />
 </menu>

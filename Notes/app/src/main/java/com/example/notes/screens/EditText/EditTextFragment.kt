@@ -52,28 +52,15 @@ class EditTextFragment : Fragment() {
         binding.model = viewModel
         binding.lifecycleOwner = this
 
-        val root = inflater.inflate(R.layout.fragment_edit_text, container, false)
 
-
-        root.findViewById<Button>(R.id.btn_save).setOnClickListener{
-            var t = root.findViewById<EditText>(R.id.record_text).text
+        binding.root.findViewById<Button>(R.id.btn_save).setOnClickListener{
+            var t = binding.root.findViewById<EditText>(R.id.record_text).text
             viewModel.setText(t.toString())
         }
 
-         root.findViewById<Button>(R.id.btn_close).setOnClickListener{
-             //var t = root.findViewById<EditText>(R.id.record_text).text
+         binding.root.findViewById<Button>(R.id.btn_close).setOnClickListener{
              buzz(CORRECT_BUZZ_PATTERN)
          }
-
-
-        viewModel.text.observe(viewLifecycleOwner,
-            Observer {
-                    text ->
-
-                root.findViewById<EditText>(R.id.record_name).setText(text)
-
-            }
-        )
 
         viewModel.eventChangeText.observe(viewLifecycleOwner, Observer {hasChanged ->
 
@@ -85,7 +72,7 @@ class EditTextFragment : Fragment() {
 
         })
 
-        return root
+        return binding.root
     }
 
     private fun buzz(pattern: LongArray) {

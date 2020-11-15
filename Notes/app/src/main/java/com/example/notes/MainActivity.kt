@@ -3,20 +3,15 @@ package com.example.notes
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.OnLifecycleEvent
 import com.example.notes.databinding.ActivityMainBinding
 import com.example.notes.screens.About.AboutFragment
 import com.example.notes.screens.EditText.EditTextFragment
 import com.example.notes.screens.Menu.MenuFragment
 import com.example.notes.screens.Options.OptionsFragment
+import com.example.notes.screens.record.RecordFragment
 import com.example.notes.screens.TermsOfUse.TermsOfUseFragment
 import timber.log.Timber
-import java.util.*
-import kotlin.math.round
 
 const val T1 = "T1"
 const val T2 = "T2"
@@ -111,6 +106,16 @@ class MainActivity : AppCompatActivity() {
                 transaction.commit()
                 true
             }
+            R.id.action_somerecord -> {
+                val newFragment = RecordFragment()
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.linearLayout, newFragment)
+                transaction.addToBackStack(null)
+                transaction.commit()
+                true
+            }
+
+
 
             else -> super.onOptionsItemSelected(item)
         }

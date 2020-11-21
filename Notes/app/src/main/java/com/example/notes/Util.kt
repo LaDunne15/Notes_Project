@@ -4,8 +4,12 @@ import android.content.res.Resources
 import android.os.Build
 import android.text.Html
 import android.text.Spanned
+import android.widget.TextView
 import androidx.core.text.HtmlCompat
+import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.database.Record
+import java.sql.Date
+import java.text.SimpleDateFormat
 
 fun formatRecords(nights: List<Record>, resources: Resources): Spanned {
     val sb = StringBuilder()
@@ -23,3 +27,16 @@ fun formatRecords(nights: List<Record>, resources: Resources): Spanned {
         return HtmlCompat.fromHtml(sb.toString(), HtmlCompat.FROM_HTML_MODE_LEGACY)
     }
 }
+
+fun getDateTime(s: Long): String? {
+    try {
+        val sdf = SimpleDateFormat("HH:mm dd/MM/yyyy ")
+        val netDate = Date(s)
+        return sdf.format(netDate)
+    } catch (e: Exception) {
+        return e.toString()
+    }
+}
+
+
+class TextItemViewHolder(val textView: TextView): RecyclerView.ViewHolder(textView)

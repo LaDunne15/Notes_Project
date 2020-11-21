@@ -15,15 +15,15 @@ data class Record(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0L,
 
+    @ColumnInfo(name="theme")
+    var theme: String = "No theme",
+
     @ColumnInfo(name = "text")
-    var text: String = "R",
+    var text: String = "",
 
     @ColumnInfo(name = "date_create")
     var date_create: Long = System.currentTimeMillis(),
 
     @ColumnInfo(name = "date_changed")
-    var date_changed: Long = date_create,
-
-    @ColumnInfo(name = "quality_rating")
-    var sleepQuality: Int = -1
+    var date_changed: Long = date_create
 )

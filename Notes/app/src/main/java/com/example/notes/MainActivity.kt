@@ -4,13 +4,13 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.example.notes.databinding.ActivityMainBinding
 import com.example.notes.screens.About.AboutFragment
 import com.example.notes.screens.EditText.EditTextFragment
 import com.example.notes.screens.Menu.MenuFragment
 import com.example.notes.screens.Options.OptionsFragment
 import com.example.notes.screens.record.RecordFragment
 import com.example.notes.screens.TermsOfUse.TermsOfUseFragment
+import com.example.notes.screens.allRecords.RecordsFragment
 import timber.log.Timber
 
 const val T1 = "T1"
@@ -20,7 +20,6 @@ var timesRan2 = 0
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -114,6 +113,15 @@ class MainActivity : AppCompatActivity() {
                 transaction.commit()
                 true
             }
+            R.id.action_all_record -> {
+                val newFragment = RecordsFragment()
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.linearLayout, newFragment)
+                transaction.addToBackStack(null)
+                transaction.commit()
+                true
+            }
+
 
 
 

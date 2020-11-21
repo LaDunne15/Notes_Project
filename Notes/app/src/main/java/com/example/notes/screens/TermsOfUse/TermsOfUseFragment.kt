@@ -11,9 +11,11 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import com.example.notes.R
 import com.example.notes.screens.EditText.EditTextViewModel
 import com.example.notes.screens.Menu.MenuViewModel
+import com.example.notes.screens.record.RecordViewModel
 
 class TermsOfUseFragment : Fragment() {
 
@@ -38,13 +40,14 @@ class TermsOfUseFragment : Fragment() {
 
         viewModelFactory = TermsOfUseViewModelFactory("QQQ")
 
-        //viewModel = ViewModelProviders.of(this, viewModelFactory).get(TermsOfUserViewModel::class.java)
-        viewModel = ViewModelProvider(this).get(TermsOfUseViewModel::class.java)
+        viewModel = ViewModelProviders.of(this,viewModelFactory).get(TermsOfUseViewModel::class.java)
+
         viewModel.text.observe(viewLifecycleOwner, Observer {text ->
 
             root.findViewById<TextView>(R.id.text_test).setText(text)
 
         })
+
 
         return root
     }

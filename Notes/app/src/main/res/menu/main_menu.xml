@@ -28,4 +28,8 @@
         android:id="@+id/action_somerecord"
         android:orderInCategory="7"
         android:title="Всі записи" />
+    <item
+        android:id="@+id/action_fact"
+        android:orderInCategory="8"
+        android:title="Випадковий факт" />
 </menu>

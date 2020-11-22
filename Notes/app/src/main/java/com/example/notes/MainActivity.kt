@@ -11,6 +11,7 @@ import com.example.notes.screens.Options.OptionsFragment
 import com.example.notes.screens.record.RecordFragment
 import com.example.notes.screens.TermsOfUse.TermsOfUseFragment
 import com.example.notes.screens.allRecords.RecordsFragment
+import com.example.notes.screens.randomFact.RandomFactFragment
 import timber.log.Timber
 
 const val T1 = "T1"
@@ -115,6 +116,14 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.action_all_record -> {
                 val newFragment = RecordsFragment()
+                val transaction = supportFragmentManager.beginTransaction()
+                transaction.replace(R.id.linearLayout, newFragment)
+                transaction.addToBackStack(null)
+                transaction.commit()
+                true
+            }
+            R.id.action_fact -> {
+                val newFragment = RandomFactFragment()
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.linearLayout, newFragment)
                 transaction.addToBackStack(null)

@@ -1,30 +1,24 @@
-package com.example.notes.screens.Menu
+package com.example.notes.screens.menu
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.lifecycle.ViewModelProvider
-import com.example.notes.MyObserver
 import com.example.notes.R
-import com.example.notes.screens.EditText.EditTextFragment
-import com.example.notes.screens.EditText.EditTextViewModel
-import kotlinx.android.synthetic.main.fragment_edit_text.*
-import kotlinx.android.synthetic.main.fragment_menu.*
-import timber.log.Timber
+import com.example.notes.databinding.FragmentMenuBinding
 
 
 class MenuFragment : Fragment() {
 
     private lateinit var viewModel: MenuViewModel
 
+    private lateinit var binding: FragmentMenuBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //lifecycle.addObserver(MyObserver())
-
-
     }
 
     override fun onStart() {
@@ -52,17 +46,19 @@ class MenuFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val root = inflater.inflate(R.layout.fragment_menu, container, false)
+
+        binding = FragmentMenuBinding.inflate(inflater)
+
         viewModel = ViewModelProvider(this).get(MenuViewModel::class.java)
 
+        binding.menu = viewModel
+        binding.lifecycleOwner = this
 
-        /*root.findViewById<Button>(R.id.btn_new_record).setOnClickListener{
 
-        }*/
 
         viewModel.createTimer()
 
-        return root
+        return binding.root
     }
 
 }

@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notes.database.Record
+import com.example.notes.database.DBRecord
 import com.example.notes.databinding.ListItemRecordBinding
 import com.example.notes.getDateTime
 
-class RecordAdapter: ListAdapter<Record, RecordAdapter.ViewHolder>(RecordDiffCallback())
+class RecordAdapter: ListAdapter<DBRecord, RecordAdapter.ViewHolder>(RecordDiffCallback())
 {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,7 +23,7 @@ class RecordAdapter: ListAdapter<Record, RecordAdapter.ViewHolder>(RecordDiffCal
 
     class ViewHolder private constructor(val binding: ListItemRecordBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(
-        item: Record
+        item: DBRecord
         ) {
             binding.rec = item
             binding.executePendingBindings()
@@ -41,12 +41,12 @@ class RecordAdapter: ListAdapter<Record, RecordAdapter.ViewHolder>(RecordDiffCal
 
 
 class RecordDiffCallback :
-    DiffUtil.ItemCallback<Record>() {
-    override fun areItemsTheSame(oldItem: Record, newItem: Record): Boolean {
+    DiffUtil.ItemCallback<DBRecord>() {
+    override fun areItemsTheSame(oldItem: DBRecord, newItem: DBRecord): Boolean {
         return oldItem.id == newItem.id
     }
 
-    override fun areContentsTheSame(oldItem: Record, newItem: Record): Boolean {
+    override fun areContentsTheSame(oldItem: DBRecord, newItem: DBRecord): Boolean {
         return oldItem == newItem
     }
 }

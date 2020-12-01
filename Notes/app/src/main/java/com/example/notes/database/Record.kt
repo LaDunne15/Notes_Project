@@ -11,7 +11,7 @@ import java.util.*
 
 //@RequiresApi(Build.VERSION_CODES.O)
 @Entity(tableName = "records_table")
-data class Record(
+data class DBRecord(
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0L,
 
@@ -27,3 +27,4 @@ data class Record(
     @ColumnInfo(name = "date_changed")
     var date_changed: Long = date_create
 )
+

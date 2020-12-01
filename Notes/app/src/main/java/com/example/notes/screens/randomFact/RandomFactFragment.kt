@@ -12,8 +12,11 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.example.notes.R
+import com.example.notes.database.getDatabase
 import com.example.notes.databinding.RandomFactFragmentBinding
 import com.example.notes.screens.EditText.EditTextViewModel
+import com.example.notes.screens.record.RecordViewModel
+import com.example.notes.screens.record.RecordViewModelFactory
 
 class RandomFactFragment : Fragment() {
 
@@ -32,17 +35,17 @@ class RandomFactFragment : Fragment() {
 
         binding = RandomFactFragmentBinding.inflate(inflater)
 
-        viewModel = ViewModelProvider(this).get(RandomFactViewModel::class.java)
+        val application = requireNotNull(this.activity).application
+
+        val dataSource = getDatabase(application).record_DB_Dao
+
+        val viewModelFactory = RandomFactViewModelFactory(application)
+
+        val viewModel = ViewModelProviders.of(this,viewModelFactory).get(RandomFactViewModel::class.java)
+
 
         binding.fact = viewModel
         binding.lifecycleOwner = this
-
-        viewModel.IMAGE_URL.observe(viewLifecycleOwner, Observer {
-            Glide.with(binding.root.findViewById<ImageView>(R.id.image).context)
-                .load(viewModel.IMAGE_URL)
-                .into(binding.root.findViewById<ImageView>(R.id.image))
-        })
-
 
         return binding.root
     }

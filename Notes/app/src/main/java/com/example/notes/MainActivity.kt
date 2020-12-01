@@ -1,12 +1,12 @@
 package com.example.notes
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import com.example.notes.screens.About.AboutFragment
-import com.example.notes.screens.EditText.EditTextFragment
-import com.example.notes.screens.Menu.MenuFragment
+import com.example.notes.screens.menu.MenuFragment
 import com.example.notes.screens.Options.OptionsFragment
 import com.example.notes.screens.record.RecordFragment
 import com.example.notes.screens.TermsOfUse.TermsOfUseFragment
@@ -45,6 +45,12 @@ class MainActivity : AppCompatActivity() {
             timesRan = 0
             timesRan2 = 0
         }
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
+        super.onCreate(savedInstanceState, persistentState)
+
+
     }
 
     override fun onSaveInstanceState(outState: Bundle) {
@@ -99,14 +105,6 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_add_record -> {
-                val newFragment = EditTextFragment()
-                val transaction = supportFragmentManager.beginTransaction()
-                transaction.replace(R.id.linearLayout, newFragment)
-                transaction.addToBackStack(null)
-                transaction.commit()
-                true
-            }
-            R.id.action_somerecord -> {
                 val newFragment = RecordFragment()
                 val transaction = supportFragmentManager.beginTransaction()
                 transaction.replace(R.id.linearLayout, newFragment)

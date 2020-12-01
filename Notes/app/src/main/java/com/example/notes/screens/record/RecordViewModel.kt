@@ -3,8 +3,8 @@ package com.example.notes.screens.record
 import android.app.Application
 import android.provider.SyncStateContract.Helpers.insert
 import androidx.lifecycle.*
+import com.example.notes.database.DBRecord
 import com.example.notes.database.Notes_DB_Dao
-import com.example.notes.database.Record
 import com.example.notes.formatRecords
 import kotlinx.coroutines.*
 import timber.log.Timber
@@ -12,6 +12,8 @@ import timber.log.Timber
 class RecordViewModel(val database: Notes_DB_Dao, application: Application) : AndroidViewModel(application) {
 
     var text = ""
+    var theme = ""
+
 
 
     private var viewModelJob = Job()
@@ -23,13 +25,11 @@ class RecordViewModel(val database: Notes_DB_Dao, application: Application) : An
 
     private  val uiScope = CoroutineScope(Dispatchers.Main + viewModelJob)
 
-    private var record = MutableLiveData<Record?>()
+    private var record = MutableLiveData<DBRecord?>()
 
     private var records = database.getAllRecords()
 
-    val recordsString = Transformations.map(records) {
-        records -> formatRecords(records, application.resources)
-    }
+
 
     val visibility = Transformations.map(record) {
         null != it
@@ -55,7 +55,7 @@ class RecordViewModel(val database: Notes_DB_Dao, application: Application) : An
         }
     }
 
-    private suspend fun getRecordFromDB() : Record? {
+    private suspend fun getRecordFromDB() : DBRecord? {
         return withContext(Dispatchers.IO) {
             var R = database.getLast()
             if(R?.date_create != R?.date_changed) {
@@ -67,18 +67,19 @@ class RecordViewModel(val database: Notes_DB_Dao, application: Application) : An
 
     fun onStartRecording() {
         uiScope.launch {
-            var newRecord = Record(text = text)
+            var newRecord = DBRecord(text = text, theme = theme)
 
             insert(newRecord)
 
             record.value = getRecordFromDB()
 
             text=""
+            theme=""
         }
 
 
     }
-    private suspend fun insert(record: Record)
+    private suspend fun insert(record: DBRecord)
     {
         withContext(Dispatchers.IO){
             database.insert(record)

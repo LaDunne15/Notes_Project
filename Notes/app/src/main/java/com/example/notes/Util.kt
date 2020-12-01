@@ -7,16 +7,17 @@ import android.text.Spanned
 import android.widget.TextView
 import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
-import com.example.notes.database.Record
+import com.example.notes.database.DBRecord
+import com.example.notes.network.NumProperty
 import java.sql.Date
 import java.text.SimpleDateFormat
 
-fun formatRecords(nights: List<Record>, resources: Resources): Spanned {
+fun formatRecords(list: List<NumProperty>, resources: Resources): Spanned {
     val sb = StringBuilder()
     sb.apply {
         append("Data:")
 
-        nights.forEach {
+        list.forEach {
             append("<br>")
             append(it.text)
         }

@@ -6,7 +6,7 @@
     <data>
         <variable
             name="rec"
-            type="com.example.notes.database.Record" />
+            type="com.example.notes.database.DBRecord" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

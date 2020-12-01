@@ -16,10 +16,11 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/btn_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Зберегти"
-            android:onClick="@{() -> record_model.onStartRecording()}"
+            android:onClick="Save"
             android:layout_gravity="fill"
             android:layout_columnWeight="1"/>
 
@@ -41,20 +42,20 @@
             />
 
         <EditText
+            android:id="@+id/rec_theme"
             android:layout_width="match_parent"
             android:layout_columnSpan="3"
-            android:text="@={record_model.text}"
             android:inputType="textPersonName"
             android:hint="Заголовок" />
 
         <EditText
+            android:id="@+id/rec_text"
             android:layout_height="match_parent"
             android:layout_width="match_parent"
             android:ems="10"
             android:layout_columnSpan="3"
             android:gravity="start|top"
             android:inputType="textMultiLine"
-            android:text="@{record_model.recordsString}"
             android:hint="Великий текст"/>
 
     </GridLayout>

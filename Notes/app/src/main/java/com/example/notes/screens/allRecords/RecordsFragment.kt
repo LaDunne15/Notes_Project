@@ -8,13 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.example.notes.R
-import com.example.notes.database.Record_DB
+import com.example.notes.database.getDatabase
 //import com.example.notes.databinding.RecordFragmentBinding
 import com.example.notes.databinding.RecordsFragmentBinding
-import com.example.notes.screens.record.RecordViewModel
-import com.example.notes.screens.record.RecordViewModelFactory
 
 class RecordsFragment : Fragment() {
 
@@ -34,7 +31,7 @@ class RecordsFragment : Fragment() {
 
         val application = requireNotNull(this.activity).application
 
-        val dataSource = Record_DB.getInstance(application).record_DB_Dao
+        val dataSource = getDatabase(application).record_DB_Dao
 
         val viewModelFactory = RecordsViewModelFactory(dataSource,application)
 

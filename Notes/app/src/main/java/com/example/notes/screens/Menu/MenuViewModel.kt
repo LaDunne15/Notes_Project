@@ -1,14 +1,37 @@
-package com.example.notes.screens.Menu
+package com.example.notes.screens.menu
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.*
+import com.example.notes.database.getDatabase
+import com.example.notes.repository.RecordsRepository
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import timber.log.Timber
 import java.util.*
 import kotlin.math.round
 
-class MenuViewModel : ViewModel()
+class MenuViewModel(application: Application) : AndroidViewModel(application)
 {
+    private val viewModelJob = SupervisorJob()
+    private  val viewModelScope = CoroutineScope(viewModelJob + Dispatchers.Main)
+    private val database = getDatabase(application)
+    private val recordsRepository = RecordsRepository(database)
+
+    init {
+        Timber.i("MenuViewModel Created!")
+        viewModelScope.launch {
+            recordsRepository.refreshRecords()
+        }
+    }
+
+    private val fact2 = recordsRepository.record
+
+
+    val recordsString = Transformations.map(fact2) {
+        it.text
+    }
 
     var timesRan = 0
     var timesRan2 = 0
@@ -38,31 +61,12 @@ class MenuViewModel : ViewModel()
     fun increment2() {
         timesRan2++
     }
-/*
-    var task = object: TimerTask() {
-        override fun run(): Unit {
-            increment()
-            Timber.i("timer passed "+timesRan.toString()+"time(s)")
-        }
-    }*/
-/*
-    private val _timesRan = MutableLiveData<Int>()
-    val timesRan: LiveData<Int>
-        get() = _timesRan
-
-    private val _timesRan2 = MutableLiveData<Int>()
-    val timesRan2: LiveData<Int>
-        get() = _timesRan2
-*/
 
 
 
 
 
-    init {
-        //_score.value=0
-        Timber.i("MenuViewModel Created!")
-    }
+
 
 
 

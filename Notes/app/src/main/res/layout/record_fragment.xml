@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -8,55 +9,83 @@
             type="com.example.notes.screens.record.RecordViewModel" />
     </data>
 
-    <GridLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnCount="3"
-        android:orientation="horizontal">
 
-        <Button
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:columnCount="3"
+                android:orientation="horizontal">
+
+
+
+                <!--
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Категорія"
+                    android:onClick="@{ () -> record_model.onClear()}"
+                    android:layout_gravity="fill"
+                    android:layout_columnWeight="1"
+                    android:enabled="@{record_model.visibility}"
+                    />
+                 -->
+                <EditText
+                    android:id="@+id/rec_theme"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_columnSpan="3"
+                    android:inputType="textPersonName"
+                    android:layout_margin="@dimen/spasing_normal"
+                    android:hint="@string/note_theme"
+                    android:contentDescription="Тема нотатки"
+                    />
+
+                <EditText
+                    android:id="@+id/rec_text"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:ems="10"
+                    android:layout_columnSpan="3"
+                    android:layout_margin="@dimen/spasing_normal"
+                    android:contentDescription="Текст нотатки"
+                    android:gravity="start|top"
+                    android:inputType="textMultiLine"
+                    android:hint="@string/note_text"/>
+
+            </GridLayout>
+
+        </androidx.core.widget.NestedScrollView>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/btn_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Зберегти"
-            android:onClick="Save"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Закрити"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"/>
-
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Категорія"
-            android:onClick="@{ () -> record_model.onClear()}"
-            android:layout_gravity="fill"
-            android:layout_columnWeight="1"
-            android:enabled="@{record_model.visibility}"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="@dimen/spasing_normal"
+            android:src="@drawable/baseline_save_24"
+            android:contentDescription="Кнопка для збереження запису"
+            android:accessibilityLiveRegion="polite"
             />
 
-        <EditText
-            android:id="@+id/rec_theme"
-            android:layout_width="match_parent"
-            android:layout_columnSpan="3"
-            android:inputType="textPersonName"
-            android:hint="Заголовок" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_cansel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_margin="@dimen/spasing_normal"
+            android:src="@drawable/baseline_cancel_24"
+            android:contentDescription="Кнопка для відміни запису"
+            android:accessibilityLiveRegion="polite"
 
-        <EditText
-            android:id="@+id/rec_text"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:ems="10"
-            android:layout_columnSpan="3"
-            android:gravity="start|top"
-            android:inputType="textMultiLine"
-            android:hint="Великий текст"/>
+            />
 
-    </GridLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </layout>

@@ -9,13 +9,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:shadowColor="@android:color/holo_green_dark"
-        android:shadowDx="4"
-        android:shadowDy="-4"
-        android:shadowRadius="1"
         android:text="Умови користування"
         android:textAlignment="center"
-        android:textSize="36sp"
+
+        android:textAppearance="?attr/textAppearanceHeadline6"
+
         android:textStyle="bold" />
 
         <TextView
@@ -30,18 +28,9 @@
     5.Quisque gravida ex id imperdiet viverra.\n
     6.Nam rhoncus purus ac metus euismod gravida.\n"
             android:inputType="textMultiLine"
-            android:textAlignment="textStart"
-            android:textSize="24sp"/>
 
-    <TextView
-        android:id="@+id/text_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:shadowColor="@android:color/holo_green_dark"
-        android:shadowDx="4"
-        android:shadowDy="-4"
-        android:shadowRadius="1"
-        android:textAlignment="center"
-        android:textSize="36sp"
-        android:textStyle="bold" />
+
+            android:textAppearance="?attr/textAppearanceHeadline5"
+
+            android:textAlignment="textStart"/>
 </LinearLayout>

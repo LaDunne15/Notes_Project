@@ -9,6 +9,7 @@ import androidx.core.text.HtmlCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notes.database.DBRecord
 import com.example.notes.network.NumProperty
+import timber.log.Timber
 import java.sql.Date
 import java.text.SimpleDateFormat
 
@@ -29,6 +30,31 @@ fun formatRecords(list: List<NumProperty>, resources: Resources): Spanned {
     }
 }
 
+fun filteredRecords(list: List<DBRecord>, filter: String): List<DBRecord>? {
+    val sb = StringBuilder()
+
+    Timber.i("d")
+
+    val list2 : List<DBRecord> = emptyList()
+
+    if(filter == "Денні") {
+        list.forEach {
+            if (getHour(it.date_changed)!! > 11) {
+                list2.plus(it)
+            }
+        }
+    }else
+        if(filter=="Нічні") {
+            list.forEach {
+                if (getHour(it.date_changed)!! < 12) {
+                    list2.plus(it)
+                }
+            }
+        }
+
+    return list2
+}
+
 fun getDateTime(s: Long): String? {
     try {
         val sdf = SimpleDateFormat("HH:mm dd/MM/yyyy ")
@@ -37,6 +63,11 @@ fun getDateTime(s: Long): String? {
     } catch (e: Exception) {
         return e.toString()
     }
+}
+
+fun getHour(s: Long): Int? {
+        val netDate = Date(s)
+        return netDate.hours
 }
 
 

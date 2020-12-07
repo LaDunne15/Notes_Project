@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/biorhyme</item>
+        <item>@font/jura</item>
+        <item>@font/monoton</item>
+        <item>@font/source_code_pro_medium</item>
+        <item>@font/stalinist_one</item>
+        <item>@font/underdog</item>
+    </array>
+</resources>

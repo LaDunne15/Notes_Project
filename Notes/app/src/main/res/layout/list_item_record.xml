@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:background="#D5D5D5">
+        android:background="#80D5D5D5">
 
         <TextView
             android:id="@+id/theme"

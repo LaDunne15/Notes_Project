@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders
 import com.example.notes.R
 import com.example.notes.database.getDatabase
 import com.example.notes.databinding.RecordFragmentBinding
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
 class RecordFragment : Fragment() {
@@ -40,7 +41,7 @@ class RecordFragment : Fragment() {
 
         binding.lifecycleOwner = this
 
-        binding.root.findViewById<Button>(R.id.btn_save).setOnClickListener{
+        binding.root.findViewById<FloatingActionButton>(R.id.btn_save).setOnClickListener{
             viewModel.text = binding.root.findViewById<EditText>(R.id.rec_text).text.toString()
             viewModel.theme = binding.root.findViewById<EditText>(R.id.rec_theme).text.toString()
 

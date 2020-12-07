@@ -5,6 +5,7 @@ import android.os.PersistableBundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import com.example.notes.screens.About.AboutFragment
 import com.example.notes.screens.menu.MenuFragment
 import com.example.notes.screens.Options.OptionsFragment
@@ -45,6 +46,10 @@ class MainActivity : AppCompatActivity() {
             timesRan = 0
             timesRan2 = 0
         }
+
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {

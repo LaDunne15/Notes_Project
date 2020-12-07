@@ -12,6 +12,32 @@
     android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <com.google.android.material.chip.ChipGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chip_list"
+            app:singleSelection="true"
+            app:singleLine="true"
+            android:padding="@dimen/text_margin">
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chipDaily"
+                android:text="Денні"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                />
+
+            <com.google.android.material.chip.Chip
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chipNight"
+                android:text="Нічні"
+                style="@style/Widget.MaterialComponents.Chip.Choice"
+                />
+
+        </com.google.android.material.chip.ChipGroup>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/record_list"
             android:layout_width="match_parent"

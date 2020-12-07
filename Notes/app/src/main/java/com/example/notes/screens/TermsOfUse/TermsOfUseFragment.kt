@@ -35,12 +35,6 @@ class TermsOfUseFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(this,viewModelFactory).get(TermsOfUseViewModel::class.java)
 
-        viewModel.text.observe(viewLifecycleOwner, Observer {text ->
-
-            root.findViewById<TextView>(R.id.text_test).setText(text)
-
-        })
-
 
         return root
     }

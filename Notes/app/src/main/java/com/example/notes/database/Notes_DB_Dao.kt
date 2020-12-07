@@ -28,6 +28,7 @@ interface Notes_DB_Dao {
 
 
 
+
     //
 
     @Query("select * from numproperty_table ORDER BY text limit 1")
@@ -38,4 +39,11 @@ interface Notes_DB_Dao {
 
 
 }
+
+
+
+
+
+
+
 
